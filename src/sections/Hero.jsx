@@ -1,13 +1,14 @@
 import Button from "../components/Button"
 import { arrowRight } from "../assets/icons"
-import { statistics } from "../constants"
+import { shoes, statistics } from "../constants"
 import { bigShoe1 } from "../assets/images"
+import ShoeCard from "../components/ShoeCard"
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="w-full flex xl:flex-row flex-col justify-center min-h-scree p-10 max-container">
+      className="w-full flex xl:flex-row flex-col justify-center min-h-scree gap-10 max-container">
         <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full max-xl:padding-x pt-28 gap-8">
           <p className="text-xl font-montserrat text-coral-red">Our Summer Collections</p>
           <h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82] font-bold">
@@ -32,6 +33,15 @@ const Hero = () => {
         </div>
           <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
             <img src={bigShoe1} alt="shoe" className="object-contain relative z-10" width={610} height={500}/>
+            <div className="flex gap-5 absolute -bottom-[5%]">
+              {shoes.map((shoe, index) => (
+                
+                <div key={index}>
+                  <ShoeCard imageURL={shoe.thumbnail} changeBigShoeImage={() => {}} bigShoeImage="" />
+                </div>
+
+            ))}
+            </div>
           </div>
     </section>
   )
